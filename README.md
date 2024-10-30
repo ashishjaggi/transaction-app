@@ -33,7 +33,7 @@ sql
 Copy code
 CREATE DATABASE transactionapp;
 USE transactionapp;
-
+```bash
 CREATE TABLE `transactions` (
   `id` int(11) NOT NULL,
   `amount` decimal(10,2) DEFAULT NULL,
