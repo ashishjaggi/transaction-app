@@ -32,7 +32,7 @@ Run the following SQL commands in MySQL to set up the transactions table:
 
 CREATE DATABASE transactionapp;
 USE transactionapp;
-```bash
+
   CREATE TABLE `transactions` (
     `id` int(11) NOT NULL,
     `amount` decimal(10,2) DEFAULT NULL,
