@@ -1,0 +1,75 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">          
+  <h2>Transaction app</h2>
+  
+  <table class="table table-bordered" id='transactionForm'>
+    <thead>
+      <tr>
+        <th>Office Transactions </th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th><a href="/forntend/addtransation.html" ><button> Add transaction</button></a></th>
+      </tr>
+      <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Credit</th>
+        <th>Debit</th>
+        <th>Running Balance</th>
+      </tr>   
+    </thead>
+    <tbody id="data">
+         
+      
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
+
+<script>
+
+
+ function fetchTransaction(){
+    fetch("http://localhost:3000/api/transaction").then(
+    res => {
+        res.json().then(
+        data => {
+            console.log(data);
+            if (data.length > 0) {
+
+            var temp = "";
+            data.forEach((itemData) => {
+                temp += "<tr>";
+                temp += "<td>" + itemData.date + "</td>";
+                temp += "<td>" + itemData.description + "</td>";
+                temp += "<td>" + itemData.credit + "</td>";
+                temp += "<td>" + itemData.debit + "</td>";
+                temp += "<td>" + itemData.amount + "</td>";
+            });
+            document.getElementById('data').innerHTML = temp;
+            }
+        }
+        )
+    }
+    )
+}
+fetchTransaction();
+
+</script>

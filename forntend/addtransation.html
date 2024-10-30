@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>New Transaction</h2>
+  <form class="form-horizontal" id="addTransactionForm">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="transactionType">Transaction Type:</label>
+      <div class="col-sm-10">
+        <select id="type" required>
+            <option value="Credit"> Credit</option>
+            <option value="Debit">  Debit</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="amount">Amount:</label>
+      <div class="col-sm-10">          
+        <input type="number" required class="form-control" id="amount" placeholder="Enter amount" name="amount">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="description">Description:</label>
+      <div class="col-sm-10">          
+        <input type="text" required class="form-control" id="description" placeholder="Enter description" name="description">
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
+
+<script>
+  document.getElementById('addTransactionForm').addEventListener('submit',async(event)=>{
+    event.preventDefault();
+
+    const amount = document.getElementById('amount').value;
+    const type = document.getElementById('type').value;
+    const description = document.getElementById('description').value;
+
+    fetch("http://localhost:3000/api/addTransaction",{
+
+      method: 'POST',
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+      body : JSON.stringify({amount,type,description})
+    }).then( (response) => { 
+     alert("Transaction added successfully")
+      document.getElementById('addTransactionForm').reset();
+      window.location = "/forntend/index.html";
+
+    });
+
+    
+
+})
+</script>
