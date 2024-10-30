@@ -45,4 +45,5 @@ Update the MySQL credentials in config/db.config.js.
 #### start server 
 npm start
 
-
+#### Access the App:
+Open your browser and go to http://localhost:3000.
