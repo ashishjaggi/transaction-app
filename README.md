@@ -31,7 +31,6 @@ In your MySQL setup, create a new database called transactionapp.
 Run the following SQL commands in MySQL to set up the transactions table:
 
 CREATE DATABASE transactionapp;
-USE transactionapp;
 
  CREATE TABLE `transactions` (
   `id` int(11) NOT NULL,
