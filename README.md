@@ -33,14 +33,14 @@ Run the following SQL commands in MySQL to set up the transactions table:
 CREATE DATABASE transactionapp;
 USE transactionapp;
 
-  CREATE TABLE `transactions` (
-    `id` int(11) NOT NULL,
-    `amount` decimal(10,2) DEFAULT NULL,
-    `credit` varchar(20) DEFAULT NULL,
-    `debit` varchar(20) DEFAULT NULL,
-    `description` varchar(250) DEFAULT NULL,
-    `date` datetime DEFAULT current_timestamp()
-  ) 
+ CREATE TABLE `transactions` (
+  `id` int(11) NOT NULL,
+  `amount` decimal(10,2) DEFAULT NULL,
+  `credit` decimal(10,2) DEFAULT NULL,
+  `debit` decimal(10,2) DEFAULT NULL,
+  `description` varchar(250) DEFAULT NULL,
+  `date` datetime DEFAULT current_timestamp()
+)
 Update the MySQL credentials in config/db.config.js.
 
 #### start server 
