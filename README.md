@@ -29,22 +29,21 @@ This is a simple transaction application built using **Node.js**, **Express**, *
 
 In your MySQL setup, create a new database called transactionapp.
 Run the following SQL commands in MySQL to set up the transactions table:
-sql
-Copy code
+
 CREATE DATABASE transactionapp;
 USE transactionapp;
 ```bash
-CREATE TABLE `transactions` (
-  `id` int(11) NOT NULL,
-  `amount` decimal(10,2) DEFAULT NULL,
-  `credit` varchar(20) DEFAULT NULL,
-  `debit` varchar(20) DEFAULT NULL,
-  `description` varchar(250) DEFAULT NULL,
-  `date` datetime DEFAULT current_timestamp()
-) 
+  CREATE TABLE `transactions` (
+    `id` int(11) NOT NULL,
+    `amount` decimal(10,2) DEFAULT NULL,
+    `credit` varchar(20) DEFAULT NULL,
+    `debit` varchar(20) DEFAULT NULL,
+    `description` varchar(250) DEFAULT NULL,
+    `date` datetime DEFAULT current_timestamp()
+  ) 
 Update the MySQL credentials in config/db.config.js.
 
-### start server 
+#### start server 
 npm start
 
 
